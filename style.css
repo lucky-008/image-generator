@@ -228,7 +228,7 @@ body {
     box-shadow: 0 4px 10px  rgba(109, 40, 217, 0.3);
 
 
-/* }
+}
 .main-content .gallery-grid{
     display: grid;
     gap: 15px;
@@ -319,7 +319,7 @@ body {
     to{
         transform: rotate(360deg);
     }
-} */
+}
 
 
 
