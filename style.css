@@ -19,6 +19,17 @@
   --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
 }
 
+body.dark-theme {
+  --color-card: #1E293B;
+  --color-input: #141B2D;
+  --color-text: #F3F4F6;
+  --color-placeholder: #A3B6DC;
+  --color-border: #334155;
+
+  background: var(--color-card);
+  background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 35%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 35%), radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+}
+
 body {
     display: flex;
     align-items: center;
@@ -37,6 +48,9 @@ body {
     border-radius: 23px;
     background: var(--color-card);
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
+}
+body.dark-theme .container{
+    border: 1px solid var(--color-border);
 }
 .container::before{
     content: "";
@@ -201,6 +215,7 @@ body {
     width: 100%;
     outline: none;
     height: 100%;
+   color: var(--color-text);
     
 }
 .prompt-actions .custom-select:is(:focus,:hover){
@@ -229,10 +244,14 @@ body {
 
 
 }
+.main-content .gallery-grid:has(.img-card){
+    margin-top: 30px;
+
+}
 .main-content .gallery-grid{
     display: grid;
     gap: 15px;
-    margin-top: 30px;
+    
     grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
 
 }
@@ -250,10 +269,33 @@ body {
     border: 1px solid var(--color-border);
     transition: all 0.5s ease;
 }
+.gallery-grid .img-card .status-container{
+    padding: 15px;
+    display: none;
+    gap: 13px;
+    flex-direction: column;
+    align-items: center;
 
-.gallery-grid .img-card:not(.loading):hover{
+
+}
+.gallery-grid .img-card:not(.loading, .error):hover{
     transform: translateY(-5px);
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.gallery-grid .img-card:where(.loading , .error) .status-container{
+    display: flex;
+
+
+}
+.gallery-grid .img-card.loading .status-container i , .gallery-grid .img-card.error .spinner {
+    display: none;
+
+}
+
+.gallery-grid .img-card.error .status-container i{
+    font-size:1.7rem ;
+    color: #ef4444;
 }
 
 .gallery-grid .img-card .result-img{
@@ -261,7 +303,7 @@ body {
     height: 100%;
     object-fit: cover;
 }
-.gallery-grid .img-card.loading :is(.result-img, .img-overlay){
+.gallery-grid .img-card:is(.loading , .error) :is(.result-img, .img-overlay){
     display: none;
 }
 
@@ -319,6 +361,13 @@ body {
     to{
         transform: rotate(360deg);
     }
+}
+
+.gallery-grid .img-card .status-text{
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--color-placeholder);
+
 }
 
 
