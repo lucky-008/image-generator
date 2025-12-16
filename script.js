@@ -128,11 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Random prompt button
-  promptBtn.addEventListener("click", () => {
-    const prompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
-    promptInput.value = prompt;
-    promptInput.focus();
-  });
+
 
   // Submit form
   promptForm.addEventListener("submit", handleFormSubmit);
