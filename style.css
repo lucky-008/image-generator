@@ -244,6 +244,12 @@ body.dark-theme .container{
 
 
 }
+.prompt-actions .generate-btn:disabled{
+    opacity: 0.6;
+    pointer-events: none;
+    
+}
+
 .main-content .gallery-grid:has(.img-card){
     margin-top: 30px;
 

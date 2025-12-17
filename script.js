@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const generateImages = async (selectedModel, imageCount, width, height, promptText) => {
       
     const BACKEND_URL = "http://localhost:3000/generate";
+    generateBtn.setAttribute("disabled","true");
 
     const imagePromises = Array.from({ length: imageCount }, async (_, i) => {
       try {
@@ -114,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     await Promise.allSettled(imagePromises);
+    generateBtn.removeAttribute("disabled");
   };
 
   // Handle form submission
