@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.querySelector(".theme-toggle");
   const promptForm = document.querySelector(".prompt-form");
   const promptInput = document.querySelector(".prompt-input");
+  const generateBtn = document.querySelector(".generate-btn");
   const promptBtn = document.querySelector(".prompt-btn");
   const modelSelect = document.getElementById("model-select");
   const countSelect = document.getElementById("count-select");
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Generate images via backend
   const generateImages = async (selectedModel, imageCount, width, height, promptText) => {
+      
     const BACKEND_URL = "http://localhost:3000/generate";
 
     const imagePromises = Array.from({ length: imageCount }, async (_, i) => {
