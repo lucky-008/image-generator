@@ -334,6 +334,10 @@ body.dark-theme .container{
     height: 45px;
     width: 45px;
     color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     backdrop-filter: blur(5px);
     border-radius: 50%;
     border: none;
